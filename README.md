@@ -13,6 +13,7 @@ module "kubernetes" {
   version             = "0.0.1"
 
   # Misc settings
+  email                      = "support@mydomain.com"
   zone                       = "FI-HEL2"
   network_id                 = module.network.network.id
   store_kubeconfig           = true
@@ -107,6 +108,10 @@ kubernetes:
       machineType: PREMIUM-2xCPU-4GB
       diskSizeGb: 100
       minNodeCount: 1
+
+  certManager:
+    enabled: true
+    gatewayApiEnabled: true
 
   # TIP: You can install more infrastructure apps on your Kubernetes with:
   # https://github.com/TaitoUnited/infra-apps-template

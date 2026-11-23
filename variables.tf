@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+variable "email" {
+  type        = string
+  default     = ""
+  description = "DevOps email"
+}
+
 variable "network_id" {
   type        = string
   default     = ""
@@ -66,6 +72,11 @@ variable "kubernetes" {
       minNodeCount = number
       /* maxNodeCount = number */
     }))
+
+    certManager = optional(object({
+      enabled           = optional(bool, false)
+      gatewayApiEnabled = optional(bool, false)
+    }))
   })
   description = "Resources as JSON (see README.md). You can read values from a YAML file with yamldecode()."
 }
@@ -116,7 +127,7 @@ variable "postgresql_clusters" {
 
 variable "mysql_clusters" {
   type = list(object({
-    name     = string
+    name      = string
     privateIp = string
   }))
   default     = []
@@ -133,4 +144,9 @@ variable "kubernetes_admin_version" {
 variable "socat_tunneler_version" {
   type    = string
   default = "0.2.0"
+}
+
+variable "cert_manager_version" {
+  type    = string
+  default = "1.21.3"
 }
