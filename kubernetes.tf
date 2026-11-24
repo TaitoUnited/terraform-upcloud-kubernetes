@@ -48,10 +48,6 @@ resource "upcloud_kubernetes_node_group" "node_pool" {
   utility_network_access = false
 
   ssh_keys = []
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 data "upcloud_kubernetes_cluster" "kubernetes" {
