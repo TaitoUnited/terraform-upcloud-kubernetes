@@ -62,5 +62,5 @@ data "upcloud_kubernetes_cluster" "kubernetes" {
 resource "local_file" "kubeconfig" {
   count    = var.store_kubeconfig ? 1 : 0
   content  = data.upcloud_kubernetes_cluster.kubernetes.kubeconfig
-  filename = "${path.module}/kubeconfig.yml"
+  filename = "${path.root}/kubeconfig.yaml"
 }
