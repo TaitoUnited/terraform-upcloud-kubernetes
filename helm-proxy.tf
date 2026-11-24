@@ -30,7 +30,7 @@ resource "helm_release" "postgres_proxy" {
   set = [
     {
       name  = "tunnel.host"
-      value = each.value.privateIp
+      value = each.value.privateAddress
     },
     {
       name  = "tunnel.port"
@@ -54,7 +54,7 @@ resource "helm_release" "mysql_proxy" {
   set = [
     {
       name  = "tunnel.host"
-      value = each.value.privateIp
+      value = each.value.privateAddress
     },
     {
       name  = "tunnel.port"
