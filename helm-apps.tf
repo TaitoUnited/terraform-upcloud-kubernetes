@@ -21,7 +21,7 @@ module "helm_apps" {
   depends_on = [upcloud_kubernetes_cluster.kubernetes]
   count      = local.helmEnabled ? 1 : 0
 
-  generate_ingress_dhparam = false
+  generate_ingress_dhparam = var.generate_ingress_dhparam
   cert_manager_version     = var.cert_manager_version
 
   email = var.email

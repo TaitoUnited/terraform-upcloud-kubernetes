@@ -108,6 +108,7 @@ variable "helm_enabled" {
 
 variable "generate_ingress_dhparam" {
   type        = bool
+  default     = false
   description = "Generate Diffie-Hellman key for ingress"
 }
 
