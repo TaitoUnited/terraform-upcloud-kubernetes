@@ -38,7 +38,7 @@ resource "helm_release" "postgres_proxy" {
     },
     {
       name  = "tunnel.localPort"
-      value = 5432
+      value = 11550
     }
   ]
 }
@@ -66,7 +66,7 @@ resource "helm_release" "mysql_proxy" {
     },
     {
       name  = "tunnel.localPort"
-      value = 5432
+      value = 11550
     }
   ]
 }
